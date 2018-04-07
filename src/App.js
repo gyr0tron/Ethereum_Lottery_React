@@ -53,33 +53,36 @@ class App extends Component {
 
 	render() {
 		return (
-			<div>
-				<h1>Lottery Contract</h1>
-				<p>This contract is managed by {this.state.manager}</p>
-        <p>
+			<div className="container card">
+				<h1 className="head-center">Lottery Contract</h1>
+
+        <br/>
+
+        <p className="head-center">This contract is managed by {this.state.manager}</p>
+        <p className="head-center">
           There are currently {this.state.players.length} people entered, 
           competing to win {web3.utils.fromWei(this.state.balance, 'ether')} ether!
         </p>
 
         <hr/>
 
-        <form onSubmit={this.onSubmit}>
+        <form onSubmit={this.onSubmit} className="head-center">
           <h4>Want to try your luck?</h4>
           <div>
             <label>Amount of ether to enter</label>
-            <input 
+            <input className="enter-form"
               type="number"
               value={this.state.value}
               onChange={event => this.setState({ value: event.target.value })}
             />
           </div>
-          <button>Enter</button>
+          <button className="btn btn-success col-md-2">Enter</button>
         </form>
 
         <hr />
 
         <h4>Ready to pick a Winner?</h4>
-        <button onClick={this.onClick}>Pick a Winner!</button>
+        <button className="btn btn-success col-md-3" onClick={this.onClick}>Pick a Winner!</button>
 
         <hr />
 
